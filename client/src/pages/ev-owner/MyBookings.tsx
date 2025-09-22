@@ -56,7 +56,7 @@ const EVOwnerMyBookings: React.FC = () => {
       params.append('page', pagination.currentPage.toString());
       params.append('limit', '10');
 
-      const response = await axios.get(`http://localhost:5000/api/bookings/my-bookings?${params.toString()}`);
+      const response = await axios.get(process.env.REACT_APP_SERVER_DOMAIN + `api/bookings/my-bookings?${params.toString()}`);
       setBookings(response.data.bookings);
       setPagination({
         currentPage: response.data.currentPage,
@@ -87,7 +87,7 @@ const EVOwnerMyBookings: React.FC = () => {
     if (!window.confirm('Are you sure you want to cancel this booking?')) return;
 
     try {
-      await axios.put(`http://localhost:5000/api/bookings/${bookingId}/cancel`);
+      await axios.put(process.env.REACT_APP_SERVER_DOMAIN + `api/bookings/${bookingId}/cancel`);
       await fetchBookings();
     } catch (err: any) {
       setError(err.response?.data?.message || 'Failed to cancel booking');
@@ -96,7 +96,7 @@ const EVOwnerMyBookings: React.FC = () => {
 
   const handleAddReview = async (bookingId: string, rating: number, review: string) => {
     try {
-      await axios.post(`http://localhost:5000/api/bookings/${bookingId}/review`, { rating, review });
+      await axios.post(process.env.REACT_APP_SERVER_DOMAIN + `api/bookings/${bookingId}/review`, { rating, review });
       await fetchBookings();
     } catch (err: any) {
       setError(err.response?.data?.message || 'Failed to add review');

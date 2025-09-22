@@ -150,7 +150,7 @@ const StationOwnerMyStations: React.FC = () => {
       };
 
       if (editingStation) {
-        await axios.put(`http://localhost:5000/api/stations/${editingStation._id}`, stationData);
+        await axios.put(process.env.REACT_APP_SERVER_DOMAIN + `api/stations/${editingStation._id}`, stationData);
       } else {
         await axios.post(process.env.REACT_APP_SERVER_DOMAIN + '/api/stations', stationData);
       }
@@ -167,7 +167,7 @@ const StationOwnerMyStations: React.FC = () => {
     setError('');
 
     try {
-      await axios.post(`http://localhost:5000/api/stations/${selectedStation?._id}/block-slots`, {
+      await axios.post(process.env.REACT_APP_SERVER_DOMAIN + `api/stations/${selectedStation?._id}/block-slots`, {
         ...blockFormData,
         slotNumber: parseInt(blockFormData.slotNumber)
       });
@@ -206,7 +206,7 @@ const StationOwnerMyStations: React.FC = () => {
     if (!window.confirm('Are you sure you want to delete this station?')) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/stations/${stationId}`);
+      await axios.delete(process.env.REACT_APP_SERVER_DOMAIN + `api/stations/${stationId}`);
       await fetchStations();
     } catch (err: any) {
       setError(err.response?.data?.message || 'Failed to delete station');
