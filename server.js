@@ -9,8 +9,7 @@ const app = express();
 // Allow requests from React dev servers
 app.use(cors({
   origin: [
-    'http://localhost:3000', // CRA default dev server
-    'http://localhost:5001'  // In case you run client on 5001
+    CLIENT_DOMAIN
   ],
   credentials: true
 }));
