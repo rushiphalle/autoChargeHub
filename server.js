@@ -9,7 +9,7 @@ const app = express();
 // Allow requests from React dev servers
 app.use(cors({
   origin: [
-    CLIENT_DOMAIN
+    process.env.CLIENT_DOMAIN
   ],
   credentials: true
 }));
