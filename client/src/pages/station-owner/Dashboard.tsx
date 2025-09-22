@@ -28,8 +28,8 @@ const StationOwnerDashboard: React.FC = () => {
   const fetchDashboardData = async () => {
     try {
       const [stationsResponse, bookingsResponse] = await Promise.all([
-        axios.get('http://localhost:5000/api/stations/owner/my-stations'),
-        axios.get('http://localhost:5000/api/bookings')
+        axios.get(process.env.SERVER_DOMAIN + '/api/stations/owner/my-stations'),
+        axios.get(process.env.SERVER_DOMAIN + '/api/bookings')
       ]);
 
       const stations = stationsResponse.data;

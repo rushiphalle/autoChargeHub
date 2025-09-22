@@ -91,7 +91,7 @@ const NearbyStations: React.FC = () => {
         const location = customLocation || userLocation;
         if (!location) return;
 
-        const response = await axios.get('http://localhost:5000/api/stations', {
+        const response = await axios.get(process.env.SERVER_DOMAIN + '/api/stations', {
           params: {
             lat: location.lat,
             lng: location.lng,
@@ -216,7 +216,7 @@ const NearbyStations: React.FC = () => {
         specialRequests: bookingData.specialRequests
       };
 
-      const response = await axios.post('http://localhost:5000/api/bookings', bookingPayload);
+      const response = await axios.post(process.env.SERVER_DOMAIN + '/api/bookings', bookingPayload);
       
       // Redirect to checkout page
       window.location.href = `/checkout/${response.data.booking._id}`;

@@ -65,7 +65,7 @@ const StationOwnerMyBookings: React.FC = () => {
 
   const fetchStations = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/stations/owner/my-stations');
+      const response = await axios.get(process.env.SERVER_DOMAIN + '/api/stations/owner/my-stations');
       setStations(response.data);
     } catch (err: any) {
       console.error('Fetch stations error:', err);

@@ -158,7 +158,7 @@ const OnlinePaymentForm: React.FC<{ bookingId: string; onSuccess: () => void; on
       if (paymentIntent && paymentIntent.status === 'succeeded') {
         // Inform server to finalize the booking payment
         try {
-          await axios.post('http://localhost:5000/api/payments/confirm-payment', {
+          await axios.post(process.env.SERVER_DOMAIN + '/api/payments/confirm-payment', {
             bookingId,
             paymentIntentId: paymentIntent.id
           });
