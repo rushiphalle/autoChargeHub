@@ -1,4 +1,4 @@
-# EV Charging Hub 2.0
+# AutoChargeHub 2.0
 
 A comprehensive EV charging station finder and booking system with two user roles: EV owners and charging station owners.
 

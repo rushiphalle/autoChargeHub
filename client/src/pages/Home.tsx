@@ -87,7 +87,7 @@ const Home: React.FC = () => {
       <section className="features">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Why Choose EcoCharge Hub?</h2>
+            <h2 className="section-title">Why Choose AutoCharge Hub?</h2>
             <p className="section-subtitle">Experience the future of sustainable transportation with our premium EV charging network</p>
           </div>
           <div className="features-grid">
@@ -222,7 +222,7 @@ const Home: React.FC = () => {
                   <Star key={i} size={16} fill="currentColor" />
                 ))}
               </div>
-              <p>"EcoCharge Hub has revolutionized how I manage my EV charging. The booking system is seamless and the stations are always reliable."</p>
+              <p>"AutoCharge Hub has revolutionized how I manage my EV charging. The booking system is seamless and the stations are always reliable."</p>
               <div className="testimonial-author">
                 <div className="author-avatar">
                   <Users size={20} />
@@ -280,7 +280,7 @@ const Home: React.FC = () => {
               <Zap size={48} />
             </div>
             <h2>Ready to Power Your Journey?</h2>
-            <p>Join over 10,000 EV owners and station operators who trust EcoCharge Hub for their charging needs.</p>
+            <p>Join over 10,000 EV owners and station operators who trust AutoCharge Hub for their charging needs.</p>
             {!user && (
               <div className="cta-actions">
                 <Link to="/register" className="btn btn-primary btn-lg">

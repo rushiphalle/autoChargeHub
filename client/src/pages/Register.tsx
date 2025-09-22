@@ -64,7 +64,7 @@ const Register: React.FC = () => {
             <div className="auth-logo">
               <Zap size={32} />
             </div>
-            <h1>Join EcoCharge</h1>
+            <h1>Join AutoCharge</h1>
             <p>Create your account and start your sustainable journey today</p>
           </div>
 

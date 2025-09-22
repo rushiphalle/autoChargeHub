@@ -47,7 +47,7 @@ const Login: React.FC = () => {
               <Zap size={32} />
             </div>
             <h1>Welcome Back</h1>
-            <p>Sign in to your EcoCharge Hub account and power your journey</p>
+            <p>Sign in to your AutoCharge Hub account and power your journey</p>
           </div>
 
           {error && (

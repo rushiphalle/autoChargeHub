@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
               <Zap size={28} />
             </div>
             <div className="brand-text">
-              <h2>EcoCharge</h2>
+              <h2>AutoCharge</h2>
               <span>Hub</span>
             </div>
           </Link>
