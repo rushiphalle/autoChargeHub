@@ -82,7 +82,7 @@ const StationOwnerMyStations: React.FC = () => {
 
   const fetchStations = async () => {
     try {
-      const response = await axios.get(process.env.SERVER_DOMAIN + '/api/stations/owner/my-stations');
+      const response = await axios.get(process.env.REACT_APP_SERVER_DOMAIN + '/api/stations/owner/my-stations');
       setStations(response.data);
     } catch (err: any) {
       setError('Failed to load stations');
@@ -152,7 +152,7 @@ const StationOwnerMyStations: React.FC = () => {
       if (editingStation) {
         await axios.put(`http://localhost:5000/api/stations/${editingStation._id}`, stationData);
       } else {
-        await axios.post(process.env.SERVER_DOMAIN + '/api/stations', stationData);
+        await axios.post(process.env.REACT_APP_SERVER_DOMAIN + '/api/stations', stationData);
       }
 
       await fetchStations();

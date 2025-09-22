@@ -68,7 +68,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const loadUser = async () => {
       if (token) {
         try {
-          const response = await axios.get(process.env.SERVER_DOMAIN + '/api/auth/me');
+          const response = await axios.get(process.env.REACT_APP_SERVER_DOMAIN + '/api/auth/me');
           console.log('User loaded:', response.data); // Debug log
           setUser(response.data);
         } catch (error: any) {
@@ -86,7 +86,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const login = async (email: string, password: string) => {
     try {
-      const response = await axios.post(process.env.SERVER_DOMAIN + '/api/auth/login', { email, password });
+      const response = await axios.post(process.env.REACT_APP_SERVER_DOMAIN + '/api/auth/login', { email, password });
       const { token: newToken, user: userData } = response.data;
       
       localStorage.setItem('token', newToken);
@@ -99,7 +99,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const register = async (userData: RegisterData) => {
     try {
-      const response = await axios.post(process.env.SERVER_DOMAIN + '/api/auth/register', userData);
+      const response = await axios.post(process.env.REACT_APP_SERVER_DOMAIN + '/api/auth/register', userData);
       const { token: newToken, user: newUser } = response.data;
       
       localStorage.setItem('token', newToken);
@@ -118,7 +118,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const updateProfile = async (userData: Partial<User>) => {
     try {
-      const response = await axios.put(process.env.SERVER_DOMAIN + '/api/auth/profile', userData);
+      const response = await axios.put(process.env.REACT_APP_SERVER_DOMAIN + '/api/auth/profile', userData);
       setUser(response.data.user);
     } catch (error: any) {
       throw new Error(error.response?.data?.message || 'Profile update failed');

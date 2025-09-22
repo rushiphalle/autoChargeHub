@@ -77,7 +77,7 @@ const AllStationsMap: React.FC = () => {
   const fetchAllStations = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(process.env.SERVER_DOMAIN + '/api/stations');
+      const response = await axios.get(process.env.REACT_APP_SERVER_DOMAIN + '/api/stations');
       setStations(response.data);
     } catch (err: any) {
       setError('Failed to load charging stations');
@@ -159,7 +159,7 @@ const AllStationsMap: React.FC = () => {
         specialRequests: bookingData.specialRequests
       };
 
-      const response = await axios.post(process.env.SERVER_DOMAIN + '/api/bookings', bookingPayload);
+      const response = await axios.post(process.env.REACT_APP_SERVER_DOMAIN + '/api/bookings', bookingPayload);
       
       // Redirect to checkout page
       window.location.href = `/checkout/${response.data.booking._id}`;
