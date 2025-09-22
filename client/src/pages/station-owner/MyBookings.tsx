@@ -83,7 +83,7 @@ const StationOwnerMyBookings: React.FC = () => {
       params.append('page', pagination.currentPage.toString());
       params.append('limit', '10');
 
-      const response = await axios.get(process.env.REACT_APP_SERVER_DOMAIN + `api/bookings?${params.toString()}`);
+      const response = await axios.get(process.env.REACT_APP_SERVER_DOMAIN + `/api/bookings?${params.toString()}`);
       setBookings(response.data.bookings || response.data);
       setPagination({
         currentPage: response.data.currentPage || 1,
@@ -121,7 +121,7 @@ const StationOwnerMyBookings: React.FC = () => {
 
   const handleStatusUpdate = async (bookingId: string, newStatus: string) => {
     try {
-      await axios.put(process.env.REACT_APP_SERVER_DOMAIN + `api/bookings/${bookingId}/status`, { status: newStatus });
+      await axios.put(process.env.REACT_APP_SERVER_DOMAIN + `/api/bookings/${bookingId}/status`, { status: newStatus });
       await fetchBookings();
     } catch (err: any) {
       setError(err.response?.data?.message || 'Failed to update booking status');

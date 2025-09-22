@@ -58,7 +58,7 @@ const BookingDetails: React.FC = () => {
   const fetchBookingDetails = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(process.env.REACT_APP_SERVER_DOMAIN + `api/bookings/${id}`);
+      const response = await axios.get(process.env.REACT_APP_SERVER_DOMAIN + `/api/bookings/${id}`);
       setBooking(response.data);
     } catch (err: any) {
       setError(err.response?.data?.message || 'Failed to load booking details');
@@ -73,7 +73,7 @@ const BookingDetails: React.FC = () => {
 
     try {
       setActionLoading(true);
-      await axios.put(process.env.REACT_APP_SERVER_DOMAIN + `api/bookings/${booking._id}/status`, { status: newStatus });
+      await axios.put(process.env.REACT_APP_SERVER_DOMAIN + `/api/bookings/${booking._id}/status`, { status: newStatus });
       await fetchBookingDetails();
     } catch (err: any) {
       setError(err.response?.data?.message || 'Failed to update booking status');
@@ -89,7 +89,7 @@ const BookingDetails: React.FC = () => {
 
     try {
       setActionLoading(true);
-      await axios.put(process.env.REACT_APP_SERVER_DOMAIN + `api/bookings/${booking._id}/cancel`);
+      await axios.put(process.env.REACT_APP_SERVER_DOMAIN + `/api/bookings/${booking._id}/cancel`);
       await fetchBookingDetails();
     } catch (err: any) {
       setError(err.response?.data?.message || 'Failed to cancel booking');
@@ -103,7 +103,7 @@ const BookingDetails: React.FC = () => {
 
     try {
       setActionLoading(true);
-      await axios.post(process.env.REACT_APP_SERVER_DOMAIN + `api/bookings/${booking._id}/review`, { rating, review });
+      await axios.post(process.env.REACT_APP_SERVER_DOMAIN + `/api/bookings/${booking._id}/review`, { rating, review });
       await fetchBookingDetails();
     } catch (err: any) {
       setError(err.response?.data?.message || 'Failed to add review');

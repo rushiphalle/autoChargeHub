@@ -33,7 +33,7 @@ const Checkout: React.FC = () => {
     const load = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(process.env.REACT_APP_SERVER_DOMAIN + `api/bookings/${id}`);
+        const res = await axios.get(process.env.REACT_APP_SERVER_DOMAIN + `/api/bookings/${id}`);
         setBooking({
           _id: res.data._id,
           totalAmount: res.data.totalAmount,
@@ -54,7 +54,7 @@ const Checkout: React.FC = () => {
     try {
       setProcessing(true);
       if (paymentMethod === 'cod') {
-        await axios.put(process.env.REACT_APP_SERVER_DOMAIN + `api/bookings/${booking._id}/payment-status`, {
+        await axios.put(process.env.REACT_APP_SERVER_DOMAIN + `/api/bookings/${booking._id}/payment-status`, {
           status: 'pending',
           method: 'cod'
         });
@@ -63,7 +63,7 @@ const Checkout: React.FC = () => {
       }
       // Online: request a PaymentIntent and show Payment Element (UPI/Card, etc.)
       if (!clientSecret) {
-        const intent = await axios.post(process.env.REACT_APP_SERVER_DOMAIN + `api/payments/create-payment-intent`, {
+        const intent = await axios.post(process.env.REACT_APP_SERVER_DOMAIN + `/api/payments/create-payment-intent`, {
           bookingId: booking._id
         });
         setClientSecret(intent.data.clientSecret);
